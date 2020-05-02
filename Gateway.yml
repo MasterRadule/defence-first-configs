@@ -29,9 +29,10 @@ zuul:
   ignoredServices: '*'
   routes:
     PKI:
-      path: api/certificates/**
-      sensitive-headers: Set-Cookie, Authorization
+      path: /api/certificates/**
+      sensitive-headers: 'Set-Cookie, Authorization'
       serviceId: PKI
+      stripPrefix: true
 
 hystrix:
   command:
