@@ -11,7 +11,7 @@ server:
 zuul:
   routes:
     PKI:
-      path: /certificates/**
+      path: api/certificates/**
       sensitive-headers: Set-Cookie, Authorization
 
 hystrix:
