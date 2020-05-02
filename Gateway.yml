@@ -31,6 +31,7 @@ zuul:
     PKI:
       path: api/certificates/**
       sensitive-headers: Set-Cookie, Authorization
+      serviceId: PKI
 
 hystrix:
   command:
