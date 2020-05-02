@@ -7,3 +7,17 @@ eureka:
 
 server:
   port: 9092
+
+zuul:
+  routes:
+    PKI:
+      path: /certificates/**
+      sensitive-headers: Set-Cookie, Authorization
+
+hystrix:
+  command:
+    PKI:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
