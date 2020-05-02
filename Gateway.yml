@@ -1,7 +1,12 @@
 eureka:
   instance:
     hostname: localhost
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    securePort: ${server.port}
   client:
+    registerWithEureka: true
+    fetchRegistry: true
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:8761/eureka/
 
@@ -14,8 +19,14 @@ server:
     key-alias: zull-proxy
 
 
-# src/main/resources/static/keystore/keystore.p12
 zuul:
+  sslHostnameValidationEnabled: false
+  okhttp:
+    enabled: true
+  host:
+    connect-timeout-millis: 5000000
+    socket-timeout-millis: 5000000
+  ignoredServices: '*'
   routes:
     PKI:
       path: api/certificates/**
@@ -28,3 +39,14 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 60000
+
+ribbon:
+  OkToRetryOnAllOperations: true
+  ReadTimeout: 5000000
+  ConnectTimeout: 5000000
+  MaxAutoRetries: 3
+  MaxAutoRetriesNextServer: 3
+  CustomSSLSocketFactoryClassName: com.netflix.http4.ssl.AcceptAllSocketFactory
+  IsHostnameValidationRequired: false
+  TrustStore: src/main/resources/static/keystore/zull-keystore.jks
+  TrustStorePassword : zuulpass
