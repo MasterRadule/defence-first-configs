@@ -50,12 +50,3 @@ ribbon:
   IsHostnameValidationRequired: false
   TrustStore: src/main/resources/static/keystore/zull-keystore.jks
   TrustStorePassword : zuulpass
-
-logging:
-  file: /home/user/{intermidiate_pat}/logs/zuul.log
-  pattern:
-    console: "%d %-5level %logger : %msg%n"
-    file: "%d %-5level [%thread] %logger : %msg%n"
-  level:
-    com.aurora.core: DEBUG
-    org.hibernate: ERROR
