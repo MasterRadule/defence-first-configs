@@ -9,10 +9,12 @@ server:
   port: 9092
   ssl:
     enabled: true
-    key-store: classpath:zuul-keystore.jks
+    key-store: src/main/resources/static/keystore/zuul-keystore.jks
     key-store-password: zuulpass
+    key-alias: zull-proxy
 
 
+# src/main/resources/static/keystore/keystore.p12
 zuul:
   routes:
     PKI:
