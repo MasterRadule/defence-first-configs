@@ -33,22 +33,3 @@ zuul:
       sensitive-headers: 'Set-Cookie, Authorization'
       serviceId: PKI
       stripPrefix: true
-
-hystrix:
-  command:
-    PKI:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 60000
-
-ribbon:
-  OkToRetryOnAllOperations: true
-  ReadTimeout: 5000000
-  ConnectTimeout: 5000000
-  MaxAutoRetries: 3
-  MaxAutoRetriesNextServer: 3
-  CustomSSLSocketFactoryClassName: com.netflix.http4.ssl.AcceptAllSocketFactory
-  IsHostnameValidationRequired: false
-  TrustStore: src/main/resources/static/keystore/zull-keystore.jks
-  TrustStorePassword : zuulpass
