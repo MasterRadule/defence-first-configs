@@ -21,6 +21,8 @@ server:
 
 zuul:
   sslHostnameValidationEnabled: false
+  debug:
+    request: true
   okhttp:
     enabled: true
   host:
