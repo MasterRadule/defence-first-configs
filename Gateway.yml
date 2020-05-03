@@ -31,3 +31,6 @@ zuul:
       sensitive-headers: 'Set-Cookie, Authorization'
       serviceId: PKI
       stripPrefix: true
+
+ribbon:
+  IsSecure: true
