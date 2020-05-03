@@ -5,6 +5,8 @@ eureka:
     securePortEnabled: true
     securePort: ${server.port}
   client:
+    registerWithEureka: true
+    fetchRegistry: true
     registryFetchIntervalSeconds: 5
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:8761/eureka/
@@ -22,6 +24,7 @@ zuul:
     PKI:
       path: /api/certificates/**
       sensitive-headers: Set-Cookie, Authorization
+      serviceId: PKI
       strip-prefix: false
       ribbon:
         listOfServers: https://localhost:8443
@@ -34,3 +37,12 @@ hystrix:
           thread:
             timeoutInMilliseconds:
               600000
+
+ribbon:
+  OkToRetryOnAllOperations: true
+  ReadTimeout: 5000000
+  ConnectTimeout: 5000000
+  MaxAutoRetries: 3
+  MaxAutoRetriesNextServer: 3
+  CustomSSLSocketFactoryClassName: com.netflix.http4.ssl.AcceptAllSocketFactory
+  IsHostnameValidationRequired: false
