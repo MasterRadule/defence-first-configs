@@ -18,6 +18,9 @@ server:
     key-alias: zull-proxy
 
 zuul:
+  ribbon:
+    eager-load:
+      enabled: true
   routes:
     PKI:
       path: /api/certificates/**
