@@ -12,11 +12,10 @@ eureka:
 server:
   port: 9092
   ssl:
+    enabled: true
     key-store: src\main\resources\static\keystore\zull-keystore.jks
     key-store-password: zuulpass
     key-alias: zull-proxy
-    client-auth: need
-    require-ssl: true
 
 zuul:
   routes:
