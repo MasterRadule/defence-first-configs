@@ -23,6 +23,8 @@ zuul:
       path: /api/certificates/**
       sensitive-headers: Set-Cookie, Authorization
       strip-prefix: false
+      ribbon:
+        listOfServers: https://localhost:8443
 
 hystrix:
   command:

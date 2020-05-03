@@ -8,6 +8,8 @@ eureka:
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:8761/eureka/
     fetchRegistry: true
+    ribbon:
+        listOfServers: https://localhost:8443
 
 server:
   port: 8443
