@@ -1,3 +1,4 @@
+"""
 eureka:
   instance:
     hostname: localhost
@@ -33,4 +34,32 @@ zuul:
       stripPrefix: true
 
 ribbon:
-  IsSecure: true
+  IsSecure: trueD
+"""
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    region: default
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+
+server:
+  port: 9092
+
+zuul:
+  routes:
+    PKI:
+      path: /api/certificates/**
+      sensitive-headers: Set-Cookie, Authorization
+
+hystrix:
+  command:
+    PKI:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds:
+              600000
