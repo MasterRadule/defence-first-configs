@@ -1,6 +1,9 @@
 eureka:
   instance:
     hostname: localhost
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    securePort: ${server.port}
   client:
     region: default
     registryFetchIntervalSeconds: 5
@@ -9,6 +12,10 @@ eureka:
 
 server:
   port: 9092
+  ssl:
+    enabled: true
+    key-store: src\main\resources\static\keystore\zull-keystore.jks
+    key-store-password: zuulpass
 
 zuul:
   routes:
