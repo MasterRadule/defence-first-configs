@@ -21,6 +21,7 @@ zuul:
   ribbon:
     eager-load:
       enabled: true
+    ReadTimeout: 60000
   routes:
     PKI:
       path: /api/certificates/**
