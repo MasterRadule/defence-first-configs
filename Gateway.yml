@@ -22,6 +22,7 @@ zuul:
     PKI:
       path: /api/certificates/**
       sensitive-headers: Set-Cookie, Authorization
+      strip-prefix: false
 
 hystrix:
   command:
