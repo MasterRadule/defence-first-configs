@@ -40,7 +40,7 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds:
-              600000
+              160000000
 
 ribbon:
   OkToRetryOnAllOperations: true
