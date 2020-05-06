@@ -57,3 +57,5 @@ keycloak:
   realm: DefenceFirst
   resource: login-app
   public-client: true
+  ssl-required: external
+  enabled: false
