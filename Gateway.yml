@@ -53,7 +53,7 @@ ribbon:
 
 
 keycloak:
-  auth-server-url: http://localhost:8080/auth
+  auth-server-url: http://localhost:8180/auth
   realm: DefenceFirst
   resource: login-app
   public-client: true
