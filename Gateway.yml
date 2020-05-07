@@ -54,7 +54,6 @@ ribbon:
 
 keycloak:
   auth-server-url: http://localhost:8180/auth
-  realm: DefenceFirst
+  realm: DefenceFirstKeycloak
   resource: login-app
   public-client: true
-  ssl-required: external
