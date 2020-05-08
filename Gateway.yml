@@ -15,7 +15,7 @@ server:
   port: 9092
   ssl:
     enabled: true
-    key-store: src\main\resources\static\keystore\zull-keystore.jks
+    key-store: ..\Gateway\src\main\resources\static\keystore\zull-keystore.jks
     key-store-password: ENC(vyc3Q2RuViKakldYClFr85DOEMDJXUWI)
     key-alias: zull-proxy
 
