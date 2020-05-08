@@ -50,10 +50,3 @@ ribbon:
   MaxAutoRetriesNextServer: 3
   CustomSSLSocketFactoryClassName: com.netflix.http4.ssl.AcceptAllSocketFactory
   IsHostnameValidationRequired: false
-
-
-keycloak:
-  auth-server-url: http://localhost:8180/auth
-  realm: DefenceFirstKeycloak
-  resource: login-app
-  public-client: true
