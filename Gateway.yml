@@ -50,3 +50,10 @@ ribbon:
   MaxAutoRetriesNextServer: 3
   CustomSSLSocketFactoryClassName: com.netflix.http4.ssl.AcceptAllSocketFactory
   IsHostnameValidationRequired: false
+
+keycloak:
+  auth-server-url: http://localhost:8180/auth
+  realm: Defence First Realm
+  resource: Defence First Client
+  credentials:
+    secret: f838e554-6ed4-4935-af58-bf68ccd514a7
