@@ -53,7 +53,7 @@ ribbon:
 
 keycloak:
   auth-server-url: http://localhost:8180/auth
-  enable-cors: true
+  cors: true
   public-client: true
   realm: Defence First Realm
   resource: Defence First Client
