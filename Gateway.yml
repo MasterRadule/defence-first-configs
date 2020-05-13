@@ -14,7 +14,6 @@ eureka:
 server:
   port: 9092
 
-
 jasypt:
   encryptor:
     password: timejts
