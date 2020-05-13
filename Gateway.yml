@@ -54,8 +54,9 @@ ribbon:
 keycloak:
   auth-server-url: http://localhost:8180/auth
   cors: true
-  public-client: true
   realm: Defence First Realm
   resource: Defence First Client
+  bearer-only: true
+  ssl-required: external
   credentials:
     secret: f838e554-6ed4-4935-af58-bf68ccd514a7
