@@ -18,6 +18,11 @@ server:
     key-store: ..\Gateway\src\main\resources\static\keystore\zull-keystore.jks
     key-store-password: ENC(vyc3Q2RuViKakldYClFr85DOEMDJXUWI)
     key-alias: zull-proxy
+    trust-store: ../Gateway/src/main/resources/static/keystore/truststore.jks
+    trust-store-password: gatewaytruststorepass
+    key-store-type: JKS
+    trust-store-type: JKS
+    client-auth: need
 
 jasypt:
   encryptor:
