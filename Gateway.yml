@@ -35,6 +35,7 @@ zuul:
     Keycloak:
       path: /auth/**
       url: http://localhost:8180
+      strip-prefix: true
 
 hystrix:
   command:
