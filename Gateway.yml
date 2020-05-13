@@ -32,6 +32,9 @@ zuul:
       strip-prefix: false
       ribbon:
         listOfServers: https://localhost:8443
+    Keycloak:
+      path: /auth/**
+      url: http://localhost:8180
 
 hystrix:
   command:
