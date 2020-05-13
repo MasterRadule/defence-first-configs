@@ -23,7 +23,8 @@ zuul:
     PKI:
       path: /api/certificates/**
       sensitive-headers: Set-Cookie, Authorization
-      serviceId: PKI
+      #serviceId: PKI
+      url: https://localhost:8443
       strip-prefix: false
       ribbon:
         listOfServers: https://localhost:8443
