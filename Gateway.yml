@@ -43,8 +43,6 @@ ribbon:
   ConnectTimeout: 5000000
   MaxAutoRetries: 3
   MaxAutoRetriesNextServer: 3
-  CustomSSLSocketFactoryClassName: com.netflix.http4.ssl.AcceptAllSocketFactory
-  IsHostnameValidationRequired: false
 
 keycloak:
   auth-server-url: http://localhost:8180/auth
