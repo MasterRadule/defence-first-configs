@@ -22,7 +22,6 @@ server:
     trust-store-password: gatewaytruststorepass
     key-store-type: JKS
     trust-store-type: JKS
-    client-auth: need
 
 jasypt:
   encryptor:
