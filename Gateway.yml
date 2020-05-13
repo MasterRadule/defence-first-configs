@@ -13,22 +13,25 @@ eureka:
 
 server:
   port: 9092
+  ssl:
+    enabled: true
+    key-store: ..\Gateway\src\main\resources\static\keystore\zull-keystore.jks
+    key-store-password: ENC(vyc3Q2RuViKakldYClFr85DOEMDJXUWI)
+    key-alias: zull-proxy
 
 jasypt:
   encryptor:
     password: timejts
 
 zuul:
-  sslHostnameValidationEnabled: false
   routes:
     PKI:
       path: /api/certificates/**
       sensitive-headers: Set-Cookie, Authorization
-      #serviceId: PKI
-      url: https://localhost:8443
+      serviceId: PKI
       strip-prefix: false
       ribbon:
-        listOfServers: https://localhost:8443
+        listOfServers: https://localhost:8443/
 
 hystrix:
   command:
@@ -45,6 +48,8 @@ ribbon:
   ConnectTimeout: 5000000
   MaxAutoRetries: 3
   MaxAutoRetriesNextServer: 3
+  CustomSSLSocketFactoryClassName: com.netflix.http4.ssl.AcceptAllSocketFactory
+  IsHostnameValidationRequired: false
 
 keycloak:
   auth-server-url: http://localhost:8180/auth
