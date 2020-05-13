@@ -15,15 +15,18 @@ server:
   port: 9092
   ssl:
     enabled: true
-    key-store: ..\Gateway\src\main\resources\static\keystore\zull-keystore.jks
+    key-store: ..\Gateway\src\main\resources\static\keystore\gateway.jks
     key-store-password: ENC(vyc3Q2RuViKakldYClFr85DOEMDJXUWI)
-    key-alias: zull-proxy
+    key-alias: gateway
 
 jasypt:
   encryptor:
     password: timejts
 
 zuul:
+  sslHostnameValidationEnabled: false
+  okhttp:
+    enabled: true
   routes:
     PKI:
       path: /api/certificates/**
@@ -50,6 +53,8 @@ ribbon:
   MaxAutoRetriesNextServer: 3
   CustomSSLSocketFactoryClassName: com.netflix.http4.ssl.AcceptAllSocketFactory
   IsHostnameValidationRequired: false
+  TrustStore: ..\Gateway\src\main\resources\static\keystore\gateway.jks
+  TrustStorePassword : ENC(vyc3Q2RuViKakldYClFr85DOEMDJXUWI)
 
 keycloak:
   auth-server-url: http://localhost:8180/auth
