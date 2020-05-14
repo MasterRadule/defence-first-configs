@@ -15,11 +15,11 @@ server:
   port: 9092
   ssl:
     enabled: true
-    key-store: ..\Gateway\src\main\resources\static\keystore\gateway.jks
+    key-store: classpath:gateway.jks
     key-store-password: ENC(vyc3Q2RuViKakldYClFr85DOEMDJXUWI)
     key-alias: gateway
     key-store-type: JKS
-    trust-store: ..\Gateway\src\main\resources\static\keystore\gateway.jks
+    trust-store: classpath:gateway.jks
     trust-store-password: ENC(vyc3Q2RuViKakldYClFr85DOEMDJXUWI)
     trust-store-type: JKS
     client-auth: need
@@ -47,11 +47,11 @@ spring:
               - OPTIONS
               - HEAD
               - PUT
-      httpclient:
-        ssl:
-          trustedX509Certificates:
-          - ..\PKI\src\main\resources\static\keystore\pki.crt
-          - ..\Client\ssl\server.crt
+   #httpclient:
+    #    ssl:
+    #      trustedX509Certificates:
+    #      - ..\PKI\src\main\resources\static\keystore\pki.crt
+    #      - ..\Client\ssl\server.crt 
 
 #hystrix:
 #  command:
