@@ -3,7 +3,7 @@ eureka:
     hostname: localhost
     non-secure-port-enabled: false
     secure-port-enabled: true
-    securePort: ${server.port}
+    secure-port: ${server.port}
   client:
     registerWithEureka: true
     fetchRegistry: true
