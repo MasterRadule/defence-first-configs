@@ -33,10 +33,14 @@ spring:
         - Path=/api/certificates/**
       globalcors:
         corsConfigurations:
-          '[/*]':
+          '[/**]':
             allowedOrigins: "https://localhost:4200"
             allowedMethods:
               - GET
+              - POST
+              - OPTIONS
+              - HEAD
+              - PUT 
 
 #hystrix:
 #  command:
