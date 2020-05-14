@@ -22,7 +22,6 @@ server:
     trust-store: classpath:gateway.jks
     trust-store-password: ENC(vyc3Q2RuViKakldYClFr85DOEMDJXUWI)
     trust-store-type: JKS
-    client-auth: need
 
 
 jasypt:
