@@ -18,24 +18,51 @@ jasypt:
   encryptor:
     password: timejts
 
-spring:
-  cloud:
-    gateway:
-      routes:
-      - id: PKI
-        uri: lb://PKI
-        predicates:
-        - Path=/api/certificates/**
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins: "https://localhost:4200"
-            allowedMethods:
-              - GET
-              - POST
-              - OPTIONS
-              - HEAD
-              - PUT
+zuul:
+  routes:
+    PKI:
+      path: /api/certificates/**
+      sensitive-headers: Set-Cookie, Authorization
+      serviceId: PKI
+      strip-prefix: false
+      ribbon:
+        listOfServers: https://localhost:8443/
+
+hystrix:
+  command:
+    PKI:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds:
+              160000000
+ribbon:
+  OkToRetryOnAllOperations: true
+  ReadTimeout: 5000000
+  ConnectTimeout: 5000000
+  MaxAutoRetries: 3
+  MaxAutoRetriesNextServer: 3
+  CustomSSLSocketFactoryClassName: com.netflix.http4.ssl.AcceptAllSocketFactory
+  IsHostnameValidationRequired: false
+
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#      - id: PKI
+#        uri: lb://PKI
+#        predicates:
+#        - Path=/api/certificates/**
+#      globalcors:
+#        corsConfigurations:
+#          '[/**]':
+#            allowedOrigins: "https://localhost:4200"
+#            allowedMethods:
+#              - GET
+#              - POST
+#              - OPTIONS
+#              - HEAD
+#              - PUT
    #httpclient:
     #    ssl:
     #      trustedX509Certificates:
