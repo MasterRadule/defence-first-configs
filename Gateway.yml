@@ -15,9 +15,9 @@ server:
   port: 9092
   ssl:
     enabled: true
-    key-store: ..\Gateway\src\main\resources\static\keystore\zull-keystore.jks
+    key-store: ..\Gateway\src\main\resources\static\keystore\gateway.jks
     key-store-password: ENC(vyc3Q2RuViKakldYClFr85DOEMDJXUWI)
-    key-alias: zull-proxy
+    key-alias: gateway
 
 jasypt:
   encryptor:
@@ -28,39 +28,34 @@ spring:
     gateway:
       routes:
       - id: PKI
-        uri: https://localhost:8443/
+        uri: lb://PKI
         predicates:
         - Path=/api/certificates/**
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*'
 
-hystrix:
-  command:
-    PKI:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds:
-              160000000
+#hystrix:
+#  command:
+#    PKI:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds:
+#              160000000
 
-ribbon:
-  OkToRetryOnAllOperations: true
-  ReadTimeout: 5000000
-  ConnectTimeout: 5000000
-  MaxAutoRetries: 3
-  MaxAutoRetriesNextServer: 3
-  CustomSSLSocketFactoryClassName: com.netflix.http4.ssl.AcceptAllSocketFactory
-  IsHostnameValidationRequired: false
+#ribbon:
+#  OkToRetryOnAllOperations: true
+#  ReadTimeout: 5000000
+#  ConnectTimeout: 5000000
+#  MaxAutoRetries: 3
+#  MaxAutoRetriesNextServer: 3
+#  CustomSSLSocketFactoryClassName: com.netflix.http4.ssl.AcceptAllSocketFactory
+#  IsHostnameValidationRequired: false
 
-keycloak:
-  auth-server-url: http://localhost:8180/auth
-  cors: true
-  realm: Defence First Realm
-  resource: Defence First Client
-  bearer-only: true
-  ssl-required: external
-  credentials:
-    secret: f838e554-6ed4-4935-af58-bf68ccd514a7
+#keycloak:
+#  auth-server-url: http://localhost:8180/auth
+#  cors: true
+#  realm: Defence First Realm
+#  resource: Defence First Client
+#  bearer-only: true
+#  ssl-required: external
+#  credentials:
+#    secret: f838e554-6ed4-4935-af58-bf68ccd514a7
