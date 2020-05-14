@@ -31,6 +31,12 @@ spring:
         uri: lb://PKI
         predicates:
         - Path=/api/certificates/**
+      globalcors:
+        corsConfigurations:
+          '[/*]':
+            allowedOrigins: "https://localhost:4200"
+            allowedMethods:
+              - GET
 
 #hystrix:
 #  command:
