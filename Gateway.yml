@@ -22,6 +22,7 @@ server:
     trust-store: ..\Gateway\src\main\resources\static\keystore\gateway.jks
     trust-store-password: ENC(vyc3Q2RuViKakldYClFr85DOEMDJXUWI)
     trust-store-type: JKS
+    client-auth: need
 
 
 jasypt:
@@ -45,7 +46,12 @@ spring:
               - POST
               - OPTIONS
               - HEAD
-              - PUT 
+              - PUT
+      httpclient:
+        ssl:
+          trustedX509Certificates:
+          - ..\PKI\src\main\resources\static\keystore\pki.crt
+          - ..\Client\ssl\server.crt
 
 #hystrix:
 #  command:
