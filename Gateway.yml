@@ -15,11 +15,13 @@ server:
   port: 9092
   ssl:
     enabled: true
-    key-store: ..\Gateway\src\main\resources\static\keystore\gateway.jks
+    key-store: C:\Users\Nemanja\Documents\DefenceFirst\Gateway\src\main\resources\static\keystore\gateway.jks
+      #..\Gateway\src\main\resources\static\keystore\gateway.jks
     key-store-password: ENC(vyc3Q2RuViKakldYClFr85DOEMDJXUWI)
     key-alias: gateway
     key-store-type: JKS
-    trust-store: ..\Gateway\src\main\resources\static\keystore\gateway.jks
+    trust-store: C:\Users\Nemanja\Documents\DefenceFirst\Gateway\src\main\resources\static\keystore\gateway.jks
+      #..\Gateway\src\main\resources\static\keystore\gateway.jks
     trust-store-password: ENC(vyc3Q2RuViKakldYClFr85DOEMDJXUWI)
     trust-store-type: JKS
 
