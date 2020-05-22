@@ -13,19 +13,12 @@ eureka:
 
 server:
   port: 9092
-  ssl:
-    enabled: true
-    key-store: ..\Gateway\src\main\resources\static\keystore\zull-keystore.jks
-    key-store-password: zuulpass
 
 jasypt:
   encryptor:
     password: timejts
 
 zuul:
-  sslHostnameValidationEnabled: false
-  okhttp:
-    enabled: true
   routes:
     PKI:
       path: /api/certificates/**
@@ -51,8 +44,6 @@ ribbon:
   MaxAutoRetriesNextServer: 3
   CustomSSLSocketFactoryClassName: com.netflix.http4.ssl.AcceptAllSocketFactory
   IsHostnameValidationRequired: false
-  TrustStore: ..\Gateway\src\main\resources\static\keystore\truststore.jks
-  TrustStorePassword : gatewaytruststorepass
 
 #keycloak:
 #  auth-server-url: http://localhost:8180/auth
