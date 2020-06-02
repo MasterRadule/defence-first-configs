@@ -1,0 +1,29 @@
+server:
+  port: 9093
+  ssl:
+    enabled: true
+    key-store-type: JKS
+    trust-store: ../SIEMAgent/src/main/resources/static/keystore/agent-truststore.jks
+    trust-store-password: ENC(yU0/F5J07S3NJANNOqrFC4UXygXeBUig)
+    trust-store-type: JKS
+    key-store: ../SIEMAgent/src/main/resources/static/keystore/agent.jks
+    key-store-password: ENC(yU0/F5J07S3NJANNOqrFC4UXygXeBUig)
+    key-alias: agent
+
+jasypt:
+  encryptor:
+    password: timejts
+
+eureka:
+  instance:
+    hostname: localhost
+    non-secure-port-enabled: false
+    secure-port-enabled: true
+    secure-port: ${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+    fetchRegistry: true
+    ribbon:
+        listOfServers: https://localhost:8443
+
