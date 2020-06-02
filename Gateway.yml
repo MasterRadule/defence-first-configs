@@ -64,3 +64,4 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: https://dev-6w-2hyw1.eu.auth0.com/
+          
