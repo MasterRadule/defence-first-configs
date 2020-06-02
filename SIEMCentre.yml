@@ -1,0 +1,29 @@
+eureka:
+  instance:
+    hostname: localhost
+    non-secure-port-enabled: false
+    secure-port-enabled: true
+    secure-port: ${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+    fetchRegistry: true
+    ribbon:
+        listOfServers: https://localhost:8443
+
+server:
+  port: 8082
+  ssl:
+    enabled: true
+    key-store-type: JKS
+    client-auth: need
+    trust-store: ../SIEMCentre/src/main/resources/static/keystore/centre-truststore.jks
+    trust-store-password: ENC(a2Yi+uzmpm+MbRTjurmJLa2BGIH2pMgK)
+    trust-store-type: JKS
+    key-store: ../SIEMCentre/src/main/resources/static/keystore/centre.jks
+    key-store-password: ENC(a2Yi+uzmpm+MbRTjurmJLa2BGIH2pMgK)
+    key-alias: centre
+
+jasypt:
+  encryptor:
+    password: timejts
