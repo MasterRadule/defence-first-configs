@@ -13,6 +13,16 @@ eureka:
 
 server:
   port: 9092
+  ssl:
+    enabled: true
+    key-store-type: JKS
+    client-auth: need
+    trust-store: ../Gateway/src/main/resources/static/keystore/truststore.jks
+    trust-store-password: ENC(8T0KdePO2gKL+wdThp0TgMaYFY3L6kmt8NlJgi0g3jU=)
+    trust-store-type: JKS
+    key-store: ../Gateway/src/main/resources/static/keystore/zull-keystore.jks
+    key-store-password: ENC(zcvJ2MlV/WTGBR92jMu/gHGBP0PSlKWR)
+    key-alias: zull-proxy
 
 jasypt:
   encryptor:
@@ -45,12 +55,12 @@ ribbon:
   CustomSSLSocketFactoryClassName: com.netflix.http4.ssl.AcceptAllSocketFactory
   IsHostnameValidationRequired: false
 
-#keycloak:
-#  auth-server-url: http://localhost:8180/auth
-#  cors: true
-#  realm: Defence First Realm
-#  resource: Defence First Client
-#  bearer-only: true
-#  ssl-required: external
-#  credentials:
-#    secret: f838e554-6ed4-4935-af58-bf68ccd514a7
+auth0:
+  audience: https://localhost:9092
+
+spring:
+  security:
+    oauth0:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-6w-2hyw1.eu.auth0.com/
