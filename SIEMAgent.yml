@@ -4,10 +4,10 @@ server:
     enabled: true
     key-store-type: JKS
     trust-store: ../SIEMAgent/src/main/resources/static/keystore/agent-truststore.jks
-    trust-store-password: ENC(yU0/F5J07S3NJANNOqrFC4UXygXeBUig)
+    trust-store-password: ENC(UX4Ciw5Lcm/0OcLPpuLd52RlJ5aoMlFJ)
     trust-store-type: JKS
     key-store: ../SIEMAgent/src/main/resources/static/keystore/agent.jks
-    key-store-password: ENC(yU0/F5J07S3NJANNOqrFC4UXygXeBUig)
+    key-store-password: ENC(UX4Ciw5Lcm/0OcLPpuLd52RlJ5aoMlFJ)
     key-alias: agent
 
 jasypt:
