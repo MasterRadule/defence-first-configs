@@ -12,4 +12,48 @@ eureka:
         listOfServers: https://localhost:8443
 
 server:
+  servlet:
+    context-path: /api
   port: 8443
+  ssl:
+    enabled: true
+    key-store-type: PKCS12
+    key-store: ../PKI/src/main/resources/static/keystore/keystore.p12
+    key-alias: defencefirst
+    key-store-password: ENC(+f9SzZEhS+ZHRrkwSsasUb68pAxXBLKI)
+    client-auth: need
+    trust-store: ../PKI/src/main/resources/static/keystore/truststore.jks
+    trust-store-password: ENC(UtGxnsPKMVRGKuN5as2izeR7p0rosC7g4rLKF/tsjZo=)
+    trust-store-type: JKS
+
+spring:
+  data:
+    mongodb:
+      username: PKIAdmin
+      password: ENC(j2x2swriTsvGWpRzoXX+tqsyekxgDjkmZjKnEoq2QS4=)
+      uri: mongodb://${spring.data.mongodb.username}:${spring.data.mongodb.password}@localhost:27017/?authSource=pki&authMechanism=SCRAM-SHA-256&readPreference=primary&ssl=false
+      database: pki
+  mail:
+    host: smtp.gmail.com
+    username: timejts2020@gmail.com
+    password: ENC(sCY8uaCmMRWIH/Oih4wC3X45wu6ZAlKt)
+    port: 587
+    properties:
+      mail:
+        defaultEncoding: UTF-8
+        smtp:
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+jasypt:
+  encryptor:
+    password: timejts
+
+certificate:
+  check:
+    period: 0 0 00 * * *
