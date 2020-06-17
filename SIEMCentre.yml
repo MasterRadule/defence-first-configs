@@ -32,6 +32,17 @@ spring:
       uri: mongodb://${spring.data.mongodb.username}:${spring.data.mongodb.password}@localhost:27017/?authSource=pki&authMechanism=SCRAM-SHA-256&readPreference=primary&ssl=false
       database: pki
 
+rules:
+  drt:
+    exceededNumOfRequestsTemplate: ../SIEMCentreRules/src/main/resources/rules/templates/excNumOfReq.drt
+    suspiciousBehaviourTemplate: ../SIEMCentreRules/src/main/resources/rules/templates/suspBehaviour.drt
+    severityTemplate: ../SIEMCentreRules/src/main/resources/rules/templates/severity.drt
+    maliciousTemplate: ../SIEMCentreRules/src/main/resources/rules/templates/malicious.drt
+    exceededNumOfRequestsDRLPath: ../SIEMCentreRules/src/main/resources/rules/ExceededNumberOfRequests
+    suspiciousBehaviourDRLPath: ../SIEMCentreRules/src/main/resources/rules/SuspiciousBehaviour
+    severityDRLPath: ../SIEMCentreRules/src/main/resources/rules/Severity
+    maliciousDRLPath: ../SIEMCentreRules/src/main/resources/rules/Malicious
+
 jasypt:
   encryptor:
     password: timejts
