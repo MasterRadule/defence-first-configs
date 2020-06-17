@@ -24,6 +24,14 @@ server:
     key-store-password: ENC(a2Yi+uzmpm+MbRTjurmJLa2BGIH2pMgK)
     key-alias: centre
 
+spring:
+  data:
+    mongodb:
+      username: PKIAdmin
+      password: ENC(j2x2swriTsvGWpRzoXX+tqsyekxgDjkmZjKnEoq2QS4=)
+      uri: mongodb://${spring.data.mongodb.username}:${spring.data.mongodb.password}@localhost:27017/?authSource=pki&authMechanism=SCRAM-SHA-256&readPreference=primary&ssl=false
+      database: pki
+
 jasypt:
   encryptor:
     password: timejts
