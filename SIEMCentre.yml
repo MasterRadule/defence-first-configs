@@ -18,7 +18,7 @@ server:
   ssl:
     enabled: true
     key-store-type: JKS
-    #client-auth: need
+    client-auth: need
     trust-store: ../SIEMCentre/src/main/resources/static/keystore/centre-truststore.jks
     trust-store-password: ENC(a2Yi+uzmpm+MbRTjurmJLa2BGIH2pMgK)
     trust-store-type: JKS
