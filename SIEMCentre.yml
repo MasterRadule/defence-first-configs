@@ -9,7 +9,7 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:8761/eureka/
     fetchRegistry: true
     ribbon:
-        listOfServers: https://localhost:8443
+        listOfServers: https://localhost:8082
 
 server:
   servlet:
