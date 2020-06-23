@@ -37,6 +37,20 @@ zuul:
       strip-prefix: false
       ribbon:
         listOfServers: https://localhost:8443/*
+    SIEMCentreAlarms:
+      path: /api/alarm/**
+      sensitive-headers: Set-Cookie, Authorization
+      serviceId: SIEMCentre
+      strip-prefix: false
+      ribbon:
+        listOfServers: https://localhost:8082/*
+    SIEMCentreLogs:
+      path: /api/log/**
+      sensitive-headers: Set-Cookie, Authorization
+      serviceId: SIEMCentre
+      strip-prefix: false
+      ribbon:
+        listOfServers: https://localhost:8082/*
 
 hystrix:
   command:

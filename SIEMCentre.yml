@@ -12,6 +12,8 @@ eureka:
         listOfServers: https://localhost:8443
 
 server:
+  servlet:
+    context-path: /api
   port: 8082
   ssl:
     enabled: true
