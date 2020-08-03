@@ -54,3 +54,8 @@ jasypt:
 certificate:
   check:
     period: 0 0 00 * * *
+
+certificates:
+  serialNumber:
+    client: 252263157
+    csr-creator: 801900629
